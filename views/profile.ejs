@@ -44,25 +44,44 @@
           <a href="/logout" class="btn btn-danger">Logout</a>
 
           <form action="/upload" method="post" enctype="multipart/form-data" >
-            <div class="input-group mb-3">
-              <input type="file" class="form-control" name="file">
-              <input type="submit" class="input-group-text" value="upload"/>
+            
+            <div class="mb-3">
+              <input type="text" name="posttext" placeholder="image text name">
             </div>
+            <div class="input-group mb-3">
+
+              <input type="file" class="form-control" name="file">
+            
+            </div>
+            <input type="submit" class="btn btn-success" value="submit"/>
           </form>
         </div>
       </div>
     </div>
     <hr>
+
+   
+
+   
+
+
     <div class="container">
-      <div class="card" style="width: 18rem">
-        <img src="https://images.pexels.com/photos/18460803/pexels-photo-18460803/free-photo-of-female-model-wearing-a-black-crop-top-standing-in-a-meadow-at-dusk.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top" alt="..." />
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+        <% user.posts.forEach(function(post){ %>
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="/images/uploads/<%= post.image%>" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <p class="card-text"><%= post.posttext %></p>
+            
+            </div>
+          </div>
+        </div>
+    
+        <% })%>
+       
         </div>
       </div>
     </div>
